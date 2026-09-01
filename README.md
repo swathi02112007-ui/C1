@@ -31,6 +31,7 @@ int main()
     printf("Enter the key value: ");
     scanf("%d", &key);
 
+    // Encryption
     for(i = 0; text[i] != '\0'; i++)
     {
         if(text[i] >= 'A' && text[i] <= 'Z')
@@ -45,13 +46,29 @@ int main()
 
     printf("Cipher Text: %s\n", text);
 
+    // Decryption
+    for(i = 0; text[i] != '\0'; i++)
+    {
+        if(text[i] >= 'A' && text[i] <= 'Z')
+        {
+            text[i] = ((text[i] - 'A' - key) % 26 + 26) % 26 + 'A';
+        }
+        else if(text[i] >= 'a' && text[i] <= 'z')
+        {
+            text[i] = ((text[i] - 'a' - key) % 26 + 26) % 26 + 'a';
+        }
+    }
+
+    printf("Decrypted Plain Text: %s\n", text);
+
     return 0;
 }
 ~~~
 
 ## OUTPUT:
 
-![alt text](<Screenshot 2026-07-21 142734.png>)
+<img width="752" height="357" alt="image" src="https://github.com/user-attachments/assets/5625f3b7-47df-42a6-9ef2-26075bfad7d2" />
+
 
 ## RESULT :
  Thus the implementation of ceasar cipher had been executed successfully.
